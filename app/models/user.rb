@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def reset_session_token!
-    self.reset_session_token!
+    self.reset_session_token
     self.save!
     self.session_token
   end
