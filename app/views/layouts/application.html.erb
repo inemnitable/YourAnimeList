@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MAL</title>
+  <title>YAL</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if logged_in? %>
+logged in as <%= current_user.username %>
+<%= link_to "log out", session_url, method: "DELETE"%>
+<% else %>
+<%= link_to "log in", new_session_url %>
+<%= link_to "new user", new_user_url %>
+<% end %>
 
 <%= yield %>
 

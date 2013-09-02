@@ -1,0 +1,8 @@
+<!-- app/views/shared/_user_form -->
+<%= render "shared/authenticity" %>
+<table><tr><td>
+<label for="user_username">Username:</label></td><td>
+<input type="text" id="user_username" name="user[username]"
+ value="<%= @user.try(:username) %>"></td></tr><tr><td>
+<label for="user_password">Password:</label></td><td>
+<input type="password" id="user_password" name="user[password]"></td></tr>

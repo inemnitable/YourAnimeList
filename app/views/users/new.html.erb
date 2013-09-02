@@ -1,0 +1,10 @@
+<!-- app/views/users/new -->
+<h1>Make a new user:</h1>
+
+<form method="post" action="<%= users_url %>">
+  <%= render "shared/user_form" %><tr><td>
+  <label for="user_email">Email:</label></td><td>
+  <input type="text" id="user_email" name="user[email]"
+   value="<%= @user.try(:email) %>"></td></tr></table>
+  <input type="submit" value="Create User">
+</form>
