@@ -4,15 +4,14 @@ window.YAL = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // var page = $('body').data("page");
-//     switch (page) {
-//       case "list":
-        YAL.ListRouter = new YAL.Routers.ListRouter($("div.main"));
-      //   break;
-      // case "home":
-      //   //do stuff eventually
-      //   break;
-    // }
+    page = $('body').data("page");
+    if (/^lists\/\w+/.test(page)) {
+      console.log(page);
+      YAL.ListRouter = new YAL.Routers.ListRouter({
+        $el: $("div.main"),
+        listId: (/^lists\/(\w+)/.exec(page))[1]
+       });
+    }
     YAL.currentView = null;
     Backbone.history.start();
   },

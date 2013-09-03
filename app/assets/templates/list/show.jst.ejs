@@ -1,12 +1,66 @@
 <% var header = JST['list/col_titles'] %>
 
-Watching
-<table>
+<h4>Watching</h4>
+<table class="listTable">
 <%= header() %>
-<tbody>
+<tbody class="listBody">
   <% var watching = JST['list/watching_row'] %>
-  <% list.items.each(function(item, idx){%>
+  <% list.get("items").chain()
+    .select(function(item){ return item.get("status") === "Watching" })
+    .each(function(item, idx){ %>
     <%= watching({item: item, idx: idx}) %>
+  <% }) %>
+</tbody>
+</table><br><br>
+
+<h4>Completed</h4>
+<table class="listTable">
+  <%= header() %>
+<tbody class="listBody">
+  <% var completed = JST['list/completed_row'] %>
+  <% list.get("items").chain()
+    .select(function(item){ return item.get("status") === "Completed" })
+    .each(function(item, idx) { %>
+    <%= completed({item: item, idx: idx}) %>
+  <% }) %>
+</tbody>
+</table><br><br>
+
+<h4>On-Hold</h4>
+<table class="listTable">
+  <%= header() %>
+<tbody class="listBody">
+  <% var onHold = JST['list/watching_row'] %>
+  <% list.get("items").chain()
+    .select(function(item){return item.get("status") === "On Hold" })
+    .each(function(item, idx) { %>
+    <%= onHold({item: item, idx: idx}) %>
+  <% }) %>
+</tbody>
+</table><br><br>
+
+<h4>Dropped</h4>
+<table class="listTable">
+  <%= header() %>
+<tbody class="listBody">
+  <% var dropped = JST['list/watching_row'] %>
+  <% list.get("items").chain()
+    .select(function(item){return item.get("status") === "Dropped" })
+    .each(function(item, idx) { %>
+    <%= dropped({item:item, idx: idx}) %>
+  <% }) %>
+</tbody>
+</table><br><br>
+
+<h4>Plan to Watch</h4>
+<table class="listTable">
+  <%= header() %>
+<tbody class="listBody">
+  <% var plan = JST['list/watching_row'] %>
+  <% list.get("items").chain()
+    .select(function(item){return item.get("status") === "Plan to Watch" })
+    .each(function(item, idx) { %>
+    <%= plan({item: item, idx: idx}) %>
   <% }) %>
 </tbody>
 </table>

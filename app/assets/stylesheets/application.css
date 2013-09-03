@@ -11,3 +11,41 @@
  *= require_self
  *= require_tree .
  */
+
+a{
+  color: #005924;
+}
+
+body{
+  background-color: black;
+  color: #EEEEEE;
+}
+
+.listTable{
+  border-collapse: collapse;
+}
+
+.listTable tr th{
+  padding: 5px;
+}
+
+.listTable tr td{
+  border: 1px solid black;
+  padding: 5px;
+}
+
+tr.color1{
+  background-color: #333333;
+}
+
+tr.color2{
+  background-color: #444444;
+}
+
+td{
+  text-align: center;
+}
+
+.left{
+  text-align: left;
+}

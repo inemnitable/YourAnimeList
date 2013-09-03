@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-page="<%= @page_id %>">
 <div>
 <% if logged_in? %>
 <%= link_to "#{current_user.username}'s list", list_url(current_user.username) %>
@@ -16,6 +16,7 @@
 <%= link_to "new user", new_user_url %>
 <% end %>
 </div>
+<div class="main">
 
 <%= yield %>
 

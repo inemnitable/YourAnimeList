@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   validates_format_of :username, with: /[A-Za-z]{3,}/
   validates_presence_of :username, :email, :password_digest, :session_token
 
+  has_many :list_items
+  has_many :anime, through: :list_items, source: :anime
+
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end

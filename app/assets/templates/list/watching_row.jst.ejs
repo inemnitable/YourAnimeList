@@ -1,11 +1,13 @@
-<tr><td>
+<tr class="<%= idx % 2 === 0 ? "color1" : "color2" %>"><td>
   <%= idx + 1 %>
+</td><td class="left">
+  <%= item.escape("title") %>
 </td><td>
-  <%= item.title %>
+  <%= item.escape("rating") || "-" %>
 </td><td>
-  <%= item.rating %>
+  <%= item.escape("type") %>
 </td><td>
-  <%= item.type %>
-</td><td>
-  <%= item.progress %>
+  <%= item.escape("progress") || "-" %> / <%= item.escape("episode_count")%>
+</td><td class="left">
+  <%= item.escape("comments")%>
 </td></tr>

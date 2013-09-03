@@ -10,7 +10,7 @@ YAL.Views.ListShow = Backbone.View.extend({
   },
 
   render: function() {
-    var content = template({list: this.list});
+    var content = this.template({list: this.list});
     this.$el.html(content);
     return this;
   }
