@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902163508) do
+ActiveRecord::Schema.define(:version => 20130903003910) do
+
+  create_table "animes", :force => true do |t|
+    t.string   "title",         :null => false
+    t.string   "show_type",     :null => false
+    t.integer  "episode_count"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "animes", ["title"], :name => "index_animes_on_title", :unique => true
+
+  create_table "list_items", :force => true do |t|
+    t.integer  "user_id",       :null => false
+    t.integer  "anime_id",      :null => false
+    t.integer  "episodes_seen"
+    t.string   "comment"
+    t.string   "status",        :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "list_items", ["anime_id"], :name => "index_list_items_on_anime_id"
+  add_index "list_items", ["user_id", "anime_id"], :name => "index_list_items_on_user_id_and_anime_id", :unique => true
+  add_index "list_items", ["user_id"], :name => "index_list_items_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username",        :null => false

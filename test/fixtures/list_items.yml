@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  anime_id: 1
+  episodes_seen: 1
+  comment: MyString
+
+two:
+  user_id: 1
+  anime_id: 1
+  episodes_seen: 1
+  comment: MyString

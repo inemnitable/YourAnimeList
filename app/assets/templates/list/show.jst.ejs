@@ -1,0 +1,12 @@
+<% var header = JST['list/col_titles'] %>
+
+Watching
+<table>
+<%= header() %>
+<tbody>
+  <% var watching = JST['list/watching_row'] %>
+  <% list.items.each(function(item, idx){%>
+    <%= watching({item: item, idx: idx}) %>
+  <% }) %>
+</tbody>
+</table>
