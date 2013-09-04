@@ -50,6 +50,6 @@ td{
   text-align: left;
 }
 
-.progressInput{
+.progressInput, .ratingInput{
   width: 30px;
 }

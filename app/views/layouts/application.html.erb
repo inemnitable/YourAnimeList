@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-page="<%= @page_id %>">
+<script type="text/json" id="bootstrap-user">
+<% if logged_in? %>
+	<%= j (render current_user, :handlers => [:rabl]).html_safe %>
+<% else %>
+	<%= {} %>
+<% end %>
+</script>
 <div>
 <% if logged_in? %>
 <%= link_to "#{current_user.username}'s list", list_url(current_user.username) %>

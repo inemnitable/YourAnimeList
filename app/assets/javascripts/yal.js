@@ -4,6 +4,7 @@ window.YAL = {
   Views: {},
   Routers: {},
   initialize: function() {
+    var userJSON = JSON.parse($('#bootstrap-user').html());
     page = $('body').data("page");
     if (/^lists\/\w+/.test(page)) {
       console.log(page);
@@ -13,6 +14,7 @@ window.YAL = {
        });
     }
     YAL.currentView = null;
+    YAL.currentUser = new YAL.Models.User(userJSON);
     Backbone.history.start();
   },
 

@@ -3,18 +3,35 @@
 </td><td class="left">
   <%= item.escape("title") %>
 </td><td>
-  <%= item.escape("rating") || "-" %>
+  <% if (editRating === item.get("id")) { %>
+    <%= JST['list/rating_form']({item: item}) %>
+  <% } else { %>
+    <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
+    <a data-itemid="<%= item.escape("id") %>" class="ratingLink edit"
+      href="javascript:void(0)"><% } %>
+      <%= item.escape("rating") || "-" %>
+    </a>
+  <% } %>
 </td><td>
   <%= item.escape("type") %>
 </td><td>
   <% if (editProgress === item.get("id")) { %>
     <%= JST['list/progress_form']({item: item}) %>
   <% } else { %>
-    <a data-itemid="<%= item.escape("id") %>" class="progressLink"
-      href="javascript:void(0)">
+    <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
+    <a data-itemid="<%= item.escape("id") %>" class="progressLink edit"
+      href="javascript:void(0)"> <% } %>
       <%= item.escape("progress") || "-" %> / <%= item.escape("episode_count")%>
     </a>
   <% } %>
-</td><td class="left">
-  <%= item.escape("comments")%>
+</td><td class="left comments">
+  <% if (editComment === item.get("id")) { %>
+    <%= JST['list/comment_form']({item: item}) %>
+  <% } else { %>
+    <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
+    <a data-itemid="<%= item.escape("id") %>" class="commentLink edit"
+      href="javascirpt:void(0)"> <% } %>
+      <%= item.escape("comment") || "-" %>
+    </a>
+  <% } %>
 </td></tr>

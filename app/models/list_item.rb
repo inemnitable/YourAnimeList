@@ -19,7 +19,9 @@ class ListItem < ActiveRecord::Base
   validate :progress_not_greater_than_total_episodes
 
   def progress_not_greater_than_total_episodes
-    if self.anime.episode_count && self.progress > self.anime.episode_count
+    if self.anime.episode_count &&
+       self.progress &&
+       self.progress > self.anime.episode_count
       self.errors << "You can't watch more episodes than exist..."
     end
   end
