@@ -1,0 +1,29 @@
+<tr class="<%= idx % 2 === 0 ? "color1" : "color2" %>"><td>
+  <%= idx + 1 %>
+</td><td class="left">
+  <%= item.escape("title") %>
+</td><td>
+  <% if (editRating === item.get("id")) { %>
+    <%= JST['list/rating_form']({item: item}) %>
+  <% } else { %>
+    <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
+    <a data-itemid="<%= item.escape("id") %>" class="ratingLink edit"
+      href="javascript:void(0)"><% } %>
+      <%= item.escape("rating") || "-" %>
+    </a>
+  <% } %>
+</td><td>
+  <%= item.escape("type") %>
+</td><td>
+  <%= item.escape("episode_count")%>
+</td><td class="left comments">
+  <% if (editComment === item.get("id")) { %>
+    <%= JST['list/comment_form']({item: item}) %>
+  <% } else { %>
+    <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
+    <a data-itemid="<%= item.escape("id") %>" class="commentLink edit"
+      href="javascirpt:void(0)"> <% } %>
+      <%= item.escape("comment") || "-" %>
+    </a>
+  <% } %>
+</td></tr>

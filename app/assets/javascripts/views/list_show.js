@@ -15,7 +15,12 @@ YAL.Views.ListShow = Backbone.View.extend({
     "click .ratingLink" : "ratingLinkClick",
     "submit .ratingForm" : "ratingFormSubmit",
     "click .commentLink" : "commentLinkClick",
-    "submit .commentForm" : "commentFormSubmit"
+    "submit .commentForm" : "commentFormSubmit",
+    "click .headTitle" : "titleSort",
+    "click .headRating" : "ratingSort",
+    "click .headType" : "typeSort",
+    "click .headProgress" : "progressSort",
+    "click .headComment" : "commentSort"
   },
 
   render: function() {
@@ -80,6 +85,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     this.focused = null;
     this.editProgress = false;
     this.editRating = false;
+    this.editComment = false;
     this.render();
     $(document).off("keydown click");
   },
@@ -112,6 +118,41 @@ YAL.Views.ListShow = Backbone.View.extend({
     this.render();
     $(focusTarget).focus();
     this.setRemoveFocusEvent();
+  },
+
+  sortEvent: function(event, sortTarget){
+    console.log("sorting by " + sortTarget);
+    event.preventDefault();
+    var listItems = this.list.get("items");
+    listItems.sortKey = sortTarget;
+    listItems.sort();
+    this.render();
+  },
+
+  titleSort: function(event) {
+    this.sortEvent(event, "title");
+  },
+
+  ratingSort: function(event) {
+    this.sortEvent(event, "rating");
+  },
+
+  typeSort: function(event) {
+    this.sortEvent(event, "type");
+  },
+
+  progressSort: function(event) {
+    event.preventDefault();
+    var listItems = this.list.get("items");
+    listItems.sortKey = "episode_count";
+    listItems.sort();
+    listItems.sortKey = "progress";
+    listItems.sort();
+    this.render();
+  },
+
+  commentSort: function(event) {
+    this.sortEvent(event, "comment");
   }
 
 })

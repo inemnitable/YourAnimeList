@@ -21,9 +21,10 @@
     <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
     <a data-itemid="<%= item.escape("id") %>" class="progressLink edit"
       href="javascript:void(0)"> <% } %>
-      <%= item.escape("progress") || "-" %> / <%= item.escape("episode_count")%>
+      <%= item.escape("progress") || "-" %>
     </a>
   <% } %>
+   / <%= item.escape("episode_count")%>
 </td><td class="left comments">
   <% if (editComment === item.get("id")) { %>
     <%= JST['list/comment_form']({item: item}) %>

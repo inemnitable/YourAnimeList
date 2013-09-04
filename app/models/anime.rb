@@ -1,5 +1,5 @@
 class Anime < ActiveRecord::Base
-  TYPES = ["TV", "OVA", "Movie", "Special"]
+  TYPES = ["TV", "OVA", "ONA", "Movie", "Special"]
   attr_accessible :episode_count, :title, :show_type
 
   validates_presence_of :title, :show_type

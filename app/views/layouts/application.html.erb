@@ -16,7 +16,7 @@
 </script>
 <div>
 <% if logged_in? %>
-<%= link_to "#{current_user.username}'s list", list_url(current_user.username) %>
+<%= link_to "#{current_user.username}'s list", list_url(current_user.username) %> |
 <%= link_to "log out", session_url, method: "DELETE"%>
 <% else %>
 <%= link_to "log in", new_session_url %>

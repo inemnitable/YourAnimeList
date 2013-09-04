@@ -14,11 +14,13 @@
 
 a{
   color: #007934;
+  text-decoration: none;
 }
 
 body{
   background-color: black;
-  color: #EEEEEE;
+  color: #E0E0E0;
+  font-size: small;
 }
 
 .listTable{
@@ -50,6 +52,36 @@ td{
   text-align: left;
 }
 
+.progressForm, .ratingForm{
+  display: inline;
+}
+
 .progressInput, .ratingInput{
-  width: 30px;
+  width: 22px;
+  display: inline;
+}
+
+.commentInput{
+  width: 290px;
+  display: center;
+}
+
+h4{
+  font-size: medium;
+}
+
+th.title{
+  width: 500px;
+}
+
+th.type{
+  width: 40px;
+}
+
+th.comment{
+  width: 300px;
+}
+
+th.num{
+  width: 25px;
 }
