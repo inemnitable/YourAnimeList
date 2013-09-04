@@ -7,9 +7,9 @@ window.YAL = {
     page = $('body').data("page");
     if (/^lists\/\w+/.test(page)) {
       console.log(page);
+      YAL.listId = (/^lists\/(\w+)/.exec(page))[1]
       YAL.ListRouter = new YAL.Routers.ListRouter({
-        $el: $("div.main"),
-        listId: (/^lists\/(\w+)/.exec(page))[1]
+        $el: $("div.main")
        });
     }
     YAL.currentView = null;

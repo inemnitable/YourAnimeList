@@ -1,5 +1,5 @@
 collection @list_items => :items
-attributes :comment, :episodes_seen, :status, :rating, :progress
+attributes :comment, :episodes_seen, :status, :rating, :progress, :id
 node :title do |item|
   item.anime.title
 end

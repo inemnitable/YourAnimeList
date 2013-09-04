@@ -1,7 +1,6 @@
 YAL.Routers.ListRouter = Backbone.Router.extend({
   initialize: function(options) {
     this.$el = options.$el;
-    this.listId = options.listId
   },
 
   routes: {

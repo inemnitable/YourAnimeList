@@ -13,7 +13,7 @@
  */
 
 a{
-  color: #005924;
+  color: #007934;
 }
 
 body{
@@ -48,4 +48,8 @@ td{
 
 .left{
   text-align: left;
+}
+
+.progressInput{
+  width: 30px;
 }

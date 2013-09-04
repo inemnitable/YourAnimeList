@@ -7,7 +7,14 @@
 </td><td>
   <%= item.escape("type") %>
 </td><td>
-  <%= item.escape("progress") || "-" %> / <%= item.escape("episode_count")%>
+  <% if (editProgress === item.get("id")) { %>
+    <%= JST['list/progress_form']({item: item}) %>
+  <% } else { %>
+    <a data-itemid="<%= item.escape("id") %>" class="progressLink"
+      href="javascript:void(0)">
+      <%= item.escape("progress") || "-" %> / <%= item.escape("episode_count")%>
+    </a>
+  <% } %>
 </td><td class="left">
   <%= item.escape("comments")%>
 </td></tr>

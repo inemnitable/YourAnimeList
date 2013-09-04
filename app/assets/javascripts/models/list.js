@@ -1,10 +1,6 @@
 YAL.Models.List = Backbone.Model.extend({
   url: function() {
-    return "/lists/" + this.listId
-  },
-
-  initialize: function(listId) {
-    this.listId = listId;
+    return "/lists/" + YAL.listId
   },
 
   parse: function(data) {

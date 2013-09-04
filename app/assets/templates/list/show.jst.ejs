@@ -8,7 +8,7 @@
   <% list.get("items").chain()
     .select(function(item){ return item.get("status") === "Watching" })
     .each(function(item, idx){ %>
-    <%= watching({item: item, idx: idx}) %>
+    <%= watching({item: item, idx: idx, editProgress: editProgress}) %>
   <% }) %>
 </tbody>
 </table><br><br>
@@ -21,7 +21,7 @@
   <% list.get("items").chain()
     .select(function(item){ return item.get("status") === "Completed" })
     .each(function(item, idx) { %>
-    <%= completed({item: item, idx: idx}) %>
+    <%= completed({item: item, idx: idx, editProgress: editProgress}) %>
   <% }) %>
 </tbody>
 </table><br><br>
@@ -34,7 +34,7 @@
   <% list.get("items").chain()
     .select(function(item){return item.get("status") === "On Hold" })
     .each(function(item, idx) { %>
-    <%= onHold({item: item, idx: idx}) %>
+    <%= onHold({item: item, idx: idx, editProgress: editProgress}) %>
   <% }) %>
 </tbody>
 </table><br><br>
@@ -47,7 +47,7 @@
   <% list.get("items").chain()
     .select(function(item){return item.get("status") === "Dropped" })
     .each(function(item, idx) { %>
-    <%= dropped({item:item, idx: idx}) %>
+    <%= dropped({item:item, idx: idx, editProgress: editProgress}) %>
   <% }) %>
 </tbody>
 </table><br><br>
@@ -60,7 +60,7 @@
   <% list.get("items").chain()
     .select(function(item){return item.get("status") === "Plan to Watch" })
     .each(function(item, idx) { %>
-    <%= plan({item: item, idx: idx}) %>
+    <%= plan({item: item, idx: idx, editProgress: editProgress}) %>
   <% }) %>
 </tbody>
 </table>
