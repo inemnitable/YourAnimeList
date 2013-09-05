@@ -87,3 +87,11 @@ th.comment{
 th.num{
   width: 25px;
 }
+
+.smaller{
+  padding: 5px;
+  position: relative;
+  bottom: 2px;
+  font-size: smaller;
+
+}

@@ -1,4 +1,4 @@
-<tr class="<%= idx % 2 === 0 ? "color1" : "color2" %>"><td>
+<tr class="<%= idx % 2 === 0 ? "color1" : "color2" %>" data-itemid="<%= item.escape("id") %>"><td>
   <%= idx + 1 %>
 </td><td class="left">
   <%= item.escape("title") %>
@@ -7,7 +7,7 @@
     <%= JST['list/rating_form']({item: item}) %>
   <% } else { %>
     <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
-    <a data-itemid="<%= item.escape("id") %>" class="ratingLink edit"
+    <a class="ratingLink edit"
       href="javascript:void(0)"><% } %>
       <%= item.escape("rating") || "-" %>
     </a>
@@ -21,8 +21,8 @@
     <%= JST['list/comment_form']({item: item}) %>
   <% } else { %>
     <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
-    <a data-itemid="<%= item.escape("id") %>" class="commentLink edit"
-      href="javascirpt:void(0)"> <% } %>
+    <a class="commentLink edit"
+      href="javascript:void(0)"> <% } %>
       <%= item.escape("comment") || "-" %>
     </a>
   <% } %>

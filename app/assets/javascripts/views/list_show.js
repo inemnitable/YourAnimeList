@@ -20,7 +20,8 @@ YAL.Views.ListShow = Backbone.View.extend({
     "click .headRating" : "ratingSort",
     "click .headType" : "typeSort",
     "click .headProgress" : "progressSort",
-    "click .headComment" : "commentSort"
+    "click .headComment" : "commentSort",
+    "click .progressPlus" : "incProgress"
   },
 
   render: function() {
@@ -94,7 +95,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     var that = this;
     event.preventDefault();
     $form = $(event.currentTarget);
-    var itemId = $form.data("itemid");
+    var itemId = $form.closest('tr').data("itemid");
     var item = this.list.get("items").get(itemId);
     item.save($form.serializeJSON(), {
       success: function() {
@@ -113,7 +114,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     event.preventDefault();
     this.removeFocus(event);
     event.stopPropagation();
-    var itemId = $(event.currentTarget).data("itemid");
+    var itemId = $(event.currentTarget).closest('tr').data("itemid");
     callback(itemId);
     this.render();
     $(focusTarget).focus();
@@ -149,6 +150,22 @@ YAL.Views.ListShow = Backbone.View.extend({
 
   commentSort: function(event) {
     this.sortEvent(event, "comment");
+  },
+
+  incProgress: function(event) {
+    event.preventDefault();
+    var that = this;
+    var itemId = $(event.currentTarget).closest('tr').data("itemid");
+    var item = this.list.get("items").get(itemId);
+    var progress = item.get("progress") || 0;
+    item.save({progress: progress + 1}, {
+      success: function() {
+        that.render();
+      },
+      error: function(model, resp) {
+        console.log(resp.responseJSON);
+      }
+    });
   }
 
-})
+});
