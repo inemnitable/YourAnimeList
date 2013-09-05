@@ -124,6 +124,8 @@ YAL.Views.ListShow = Backbone.View.extend({
     console.log("sorting by " + sortTarget);
     event.preventDefault();
     var listItems = this.list.get("items");
+    if (listItems.sortKey == sortTarget) listItems.sortOrder *= -1
+    else listItems.sortOrder = 1;
     listItems.sortKey = sortTarget;
     listItems.sort();
     this.render();
@@ -142,13 +144,7 @@ YAL.Views.ListShow = Backbone.View.extend({
   },
 
   progressSort: function(event) {
-    event.preventDefault();
-    var listItems = this.list.get("items");
-    listItems.sortKey = "episode_count";
-    listItems.sort();
-    listItems.sortKey = "progress";
-    listItems.sort();
-    this.render();
+    this.sortEvent(event, "progress");
   },
 
   commentSort: function(event) {
