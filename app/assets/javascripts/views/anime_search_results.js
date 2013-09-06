@@ -1,0 +1,17 @@
+YAL.Views.AnimeSearchResults = Backbone.View.extend({
+  template: JST['anime/search_results'],
+
+  initialize: function($el) {
+    this.$el = $el;
+    YAL.searchResults = YAL.searchResults || new YAL.Collections.Anime()
+  },
+
+  events: {},
+
+  render: function() {
+
+    var content = this.template({results: YAL.searchResults});
+    this.$el.html(content);
+    return this;
+  }
+})

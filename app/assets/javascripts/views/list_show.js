@@ -175,7 +175,7 @@ YAL.Views.ListShow = Backbone.View.extend({
       appendTo: this.$el,
       autoOpen: true,
       closeText: "x",
-      height: 800,
+      height: 600,
       width: 800,
       modal: true,
       title: "Add Anime"

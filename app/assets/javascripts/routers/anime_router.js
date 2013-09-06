@@ -1,6 +1,7 @@
 YAL.Routers.AnimeRouter = Backbone.Router.extend({
   initialize: function(options) {
-    this.$el = options.$el;
+    this.$search_box = $('div.search_box');
+    this.$search_results = $('div.search_results')
   },
 
   routes: {
@@ -10,7 +11,8 @@ YAL.Routers.AnimeRouter = Backbone.Router.extend({
   index: function() {
     var that = this;
     YAL.removeOldView();
-    var view = YAL.currentView = new YAL.Views.AnimeIndex();
-    that.$el.html(view.render().$el);
+    var searchView = YAL.currentView = new YAL.Views.AnimeSearchBox();
+    this.$search_box.html(searchView.render().$el);
+    var searchResultView = YAL.searchResultView = new YAL.Views.AnimeSearchResults(this.$search_results);
   }
 })
