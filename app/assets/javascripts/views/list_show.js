@@ -21,7 +21,8 @@ YAL.Views.ListShow = Backbone.View.extend({
     "click .headType" : "typeSort",
     "click .headProgress" : "progressSort",
     "click .headComment" : "commentSort",
-    "click .progressPlus" : "incProgress"
+    "click .progressPlus" : "incProgress",
+    "click .addAnime" : "addAnime"
   },
 
   render: function() {
@@ -165,6 +166,19 @@ YAL.Views.ListShow = Backbone.View.extend({
       error: function(model, resp) {
         console.log(resp.responseJSON);
       }
+    });
+  },
+
+  addAnime: function(event) {
+    var $div = $('<iframe src="/anime" style="width: 95% !important">');
+    $div.dialog({
+      appendTo: this.$el,
+      autoOpen: true,
+      closeText: "x",
+      height: 800,
+      width: 800,
+      modal: true,
+      title: "Add Anime"
     });
   }
 

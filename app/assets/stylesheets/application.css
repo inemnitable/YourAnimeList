@@ -13,11 +13,11 @@
  */
 
 a{
-  color: #007934;
+  color: #6677ff;
   text-decoration: none;
 }
 
-body{
+ body{
   background-color: black;
   color: #E0E0E0;
   font-size: small;
@@ -28,22 +28,22 @@ body{
 }
 
 .listTable tr th{
-  padding: 3px;
+  padding: 2px;
   padding-left: 6px;
 }
 
 .listTable tr td{
   border: 1px solid black;
-  padding: 3px;
+  padding: 2px;
   padding-left: 6px;
 }
 
 tr.color1{
-  background-color: #333333;
+  background-color: #1e1e1e;
 }
 
 tr.color2{
-  background-color: #444444;
+  background-color: #323232;
 }
 
 td{
@@ -77,7 +77,7 @@ th.title{
 }
 
 th.type{
-  width: 40px;
+  width: 50px;
 }
 
 th.comment{
@@ -85,13 +85,21 @@ th.comment{
 }
 
 th.num{
-  width: 25px;
+  width: 30px;
 }
 
-.smaller{
+th.rating{
+  width: 45px;
+}
+
+th.progress{
+  width: 70px;
+}
+
+/*.smaller{
   padding: 5px;
   position: relative;
   bottom: 2px;
   font-size: smaller;
 
-}
+}*/

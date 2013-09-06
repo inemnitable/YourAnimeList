@@ -14,6 +14,7 @@
 	<%= {} %>
 <% end %>
 </script>
+<% unless @page_id == "anime/index" %>
 <div>
 <% if logged_in? %>
 <%= link_to "#{current_user.username}'s list", list_url(current_user.username) %> |
@@ -23,9 +24,11 @@
 <%= link_to "new user", new_user_url %>
 <% end %>
 </div>
+<% end %>
 <div class="main">
 
 <%= yield %>
 
+</div>
 </body>
 </html>
