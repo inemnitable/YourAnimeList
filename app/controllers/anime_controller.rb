@@ -18,7 +18,10 @@ class AnimeController < ApplicationController
 
   def search
     search_str = params[:search]
-    @anime = Anime.where('LOWER(title) LIKE ?', "%#{search_str.downcase}%")
+    @anime = Anime.where(
+      'LOWER(title) LIKE ? AND id NOT IN (?)',
+       "%#{search_str.downcase}%",
+       current_user.anime_ids)
       .limit(15)
     render :search
   end

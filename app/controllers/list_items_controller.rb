@@ -8,7 +8,7 @@ class ListItemsController < ApplicationController
     if @list_item.save
       render :show
     else
-      render json: @list_item.errors.full_messages
+      render json: @list_item.errors.full_messages, status: 422
     end
   end
 
@@ -16,7 +16,7 @@ class ListItemsController < ApplicationController
     if @list_item.update_attributes(params[:list_item])
       render :show
     else
-      render json: @list_item.errors.full_messages
+      render json: @list_item.errors.full_messages, status: 422
     end
   end
 

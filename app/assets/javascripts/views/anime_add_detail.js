@@ -24,7 +24,7 @@ YAL.Views.AnimeAddDetail = Backbone.View.extend({
     listItems.create(formData, {
       success: function(model) {
         console.log("anime successfully added");
-        window.parent.YAL.dialog.close();
+        window.parent.YAL.dialog.dialog("close");
       },
       error: function(model, response) {
         console.log("response.responseJSON");
