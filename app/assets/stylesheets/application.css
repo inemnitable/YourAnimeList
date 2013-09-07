@@ -105,14 +105,19 @@ div.container{
 }
 
 div.left_bar{
+  display: inline-block;
+  vertical-align: top;
   margin: 0px;
   width: 45%;
   height: 100%;
 }
 
 div.right_bar{
+  display: inline-block;
+  vertical-align: top;
   margin: 0px;
-  width: 55%;
+  margin-left: 20px;
+  width: 50%;
   height: 100%;
 }
 
@@ -126,8 +131,8 @@ div.search_results{
 
 div.search_box label{
   float: left;
-  margin-top: 2px;
-  margin-left: 2px;
+  /*margin-top: 2px;
+  margin-left: 2px;*/
 }
 
 div.search_box span{
@@ -139,3 +144,39 @@ div.search_box span{
 div.search_box input{
   width: 100%;
 }
+
+div.fillWidthLeft{
+  margin: 10px;
+}
+
+.floatRight{
+  float: right;
+}
+
+div.fillWidthLeft span.floatRight{
+  width: 110px;
+}
+
+div.fillWidthLeft span.label{
+  display: inline-block;
+  overflow: hidden;
+}
+
+div.fillWidthLeft span.floatRight input{
+  width: 70px;
+}
+
+/*div.fillWidthLeft span.float span.episodeCount{
+  margin-top: 2px;
+  margin-left: 5px;
+}*/
+
+h3.rightBar{
+  margin-top: -3px;
+}
+
+input, select{
+  margin-top: -3px;
+  margin-right: 5px;
+}
+

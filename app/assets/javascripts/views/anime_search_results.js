@@ -6,12 +6,21 @@ YAL.Views.AnimeSearchResults = Backbone.View.extend({
     YAL.searchResults = YAL.searchResults || new YAL.Collections.Anime()
   },
 
-  events: {},
+  events: {
+    "click a.showDetail" : "showDetail"
+  },
 
   render: function() {
 
     var content = this.template({results: YAL.searchResults});
     this.$el.html(content);
     return this;
-  }
+  },
+
+  showDetail: function(event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data("animeid");
+    YAL.detailAnime = YAL.searchResults.get(id);
+    YAL.detailView.render();
+  },
 })

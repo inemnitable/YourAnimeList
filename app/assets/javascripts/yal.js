@@ -1,4 +1,7 @@
 window.YAL = {
+  STATUSES: ["Completed", "Watching", "Dropped", "Plan to Watch", "On Hold"],
+  RATINGS: ["", "Unwatchable", "Horrible", "Very Bad", "Bad", "Average",
+            "Fine", "Good", "Very Good", "Excellent", "Masterpiece"],
   Models: {},
   Collections: {},
   Views: {},

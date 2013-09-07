@@ -7,6 +7,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     this.list = list;
     this.editProgress = false;
     this.editRating = false;
+    this.listenTo(YAL.list.get("items"), "add change", this.render);
   },
 
   events: {
@@ -99,14 +100,10 @@ YAL.Views.ListShow = Backbone.View.extend({
     var itemId = $form.closest('tr').data("itemid");
     var item = this.list.get("items").get(itemId);
     item.save($form.serializeJSON(), {
-      success: function() {
-        callback();
-        that.render();
-      },
+      success: callback,
       error: function(model, resp) {
         console.log(resp.responseJSON);
         callback();
-        that.render();
       }
     });
   },
@@ -160,9 +157,6 @@ YAL.Views.ListShow = Backbone.View.extend({
     var item = this.list.get("items").get(itemId);
     var progress = item.get("progress") || 0;
     item.save({progress: progress + 1}, {
-      success: function() {
-        that.render();
-      },
       error: function(model, resp) {
         console.log(resp.responseJSON);
       }
@@ -170,11 +164,11 @@ YAL.Views.ListShow = Backbone.View.extend({
   },
 
   addAnime: function(event) {
-    var $div = $('<iframe src="/anime" style="width: 95% !important">');
-    $div.dialog({
+    YAL.dialog = $('<iframe src="/anime" style="width: 95% !important">');
+    YAL.dialog.dialog({
       appendTo: this.$el,
       autoOpen: true,
-      closeText: "x",
+      closeOnEscape: true,
       height: 600,
       width: 800,
       modal: true,

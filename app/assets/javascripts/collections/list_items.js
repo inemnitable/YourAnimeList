@@ -1,6 +1,8 @@
 YAL.Collections.ListItems = Backbone.Collection.extend({
   model: YAL.Models.ListItem,
 
+  url: "/list_items",
+
   sortKey: "title",
   sortOrder: 1,
 

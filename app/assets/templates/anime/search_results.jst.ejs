@@ -1,7 +1,7 @@
 <% results.each(function(result) { %>
   <p>
     <a href="javascript:void(0)" class="showDetail"
-      data-animeid="<%= result.id %>">
+      data-animeid="<%= result.escape("id") %>">
       <%= result.escape("title") %>
     </a>
   </p>
