@@ -6,7 +6,8 @@ YAL.Views.ListItemEditView = Backbone.View.extend({
 	},
 
 	events: {
-		"submit form": "formSubmit"
+		"submit form": "formSubmit",
+		"click .removeLink": "remove"
 	},
 
 	render: function() {
@@ -27,6 +28,19 @@ YAL.Views.ListItemEditView = Backbone.View.extend({
 			error: function(model, response) {
 				console.log(response.responseJSON);
 			}
+		})
+	},
+
+	remove: function(event) {
+		event.preventDefault();
+		this.listItem.destroy({
+			success: function(model) {
+				console.log("anime successfully deleted");
+				window.parent.YAL.dialog.dialog("close");
+			},
+			error: function(model, response) {
+				console.log(response.responseJSON);
+			},
 		})
 	}
 })

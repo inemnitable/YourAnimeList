@@ -7,7 +7,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     this.list = list;
     this.editProgress = false;
     this.editRating = false;
-    this.listenTo(YAL.list.get("items"), "add change", this.render);
+    this.listenTo(YAL.list.get("items"), "add change destroy", this.render);
   },
 
   events: {

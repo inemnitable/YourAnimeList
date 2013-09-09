@@ -1,6 +1,6 @@
 class ListItemsController < ApplicationController
   before_filter :require_logged_in
-  before_filter :require_list_item_owner, only: [:update]
+  before_filter :require_list_item_owner, only: [:update, :destroy]
 
   def create
     params[:list_item][:user_id] = current_user.id
@@ -29,6 +29,14 @@ class ListItemsController < ApplicationController
 
   def update
     if @list_item.update_attributes(params[:list_item])
+      render :show
+    else
+      render json: @list_item.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    if @list_item.destroy
       render :show
     else
       render json: @list_item.errors.full_messages, status: 422
