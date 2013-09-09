@@ -1,0 +1,9 @@
+<h3 class="rightBar"><%= anime.escape("title") %></h3>
+
+<% var form = JST['list_item/detail_form'] %>
+<%= form({ anime: anime })%>
+
+<div>
+    <input type="submit" value="Add to List" class="floatRight">
+  </div>
+</form>

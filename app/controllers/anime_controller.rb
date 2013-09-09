@@ -1,16 +1,4 @@
 class AnimeController < ApplicationController
-  def index
-    respond_to do |format|
-      format.html do
-        @page_id = "anime/index"
-        render :index
-      end
-      # format.json do
-      #   @anime = Anime.all
-      #   render :index, handlers: [:rabl]
-      # end
-    end
-  end
 
   def show
     render :show

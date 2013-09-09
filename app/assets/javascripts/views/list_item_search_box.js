@@ -1,5 +1,5 @@
-YAL.Views.AnimeSearchBox = Backbone.View.extend({
-  template: JST['anime/search_box'],
+YAL.Views.ListItemSearchBox = Backbone.View.extend({
+  template: JST['list_item/search_box'],
 
   initialize: function() {},
 

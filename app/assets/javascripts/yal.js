@@ -8,26 +8,27 @@ window.YAL = {
   Routers: {},
   initialize: function() {
     var userJSON = JSON.parse($('#bootstrap-user').html());
-    page = $('body').data("page");
+    var page = $('body').data("page");
     if (/^lists\/\w+/.test(page)) {
-      YAL.listId = (/^lists\/(\w+)/.exec(page))[1]
+      YAL.listId = (/^lists\/(\w+)/.exec(page))[1];
       YAL.ListRouter = new YAL.Routers.ListRouter({
         $el: $("div.main")
        });
-    } else if (page === "anime/index") {
-      YAL.AnimeRouter = new YAL.Routers.AnimeRouter({
-        $el: $("div.main")
-      });
+    } else if (page === "list_items/new") {
+      YAL.ListAddRouter = new YAL.Routers.ListAddRouter();
+    } else if (/^list_item\/\d+\/edit/.test(page)) {
+    	YAL.listItemId = (/^list_item\/(\d+)\/edit/.exec(page))[1];
+			YAL.ListItemEditRouter = new YAL.Routers.ListItemEditRouter();
     }
-    YAL.currentView = null;
+    YAL.currentViews = [];
     YAL.currentUser = new YAL.Models.User(userJSON);
     Backbone.history.start();
   },
 
-  removeOldView: function() {
-    if (YAL.currentView) {
-      YAL.currentView.remove();
-      YAL.currentView = null;
+  removeOldViews: function() {
+    if (YAL.currentViews.length > 0) {
+      _.invoke(YAL.currentViews, 'remove');
+      YAL.currentViews = [];
     }
   }
 };

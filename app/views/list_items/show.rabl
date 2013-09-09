@@ -1,5 +1,5 @@
 object @list_item
-attributes :comment, :episodes_seen, :status, :rating, :progress, :id
+attributes :comment, :episodes_seen, :status, :rating, :progress, :id, :anime_id
 node :title do
   @list_item.anime.title
 end

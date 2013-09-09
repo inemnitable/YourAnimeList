@@ -1,6 +1,8 @@
 <% var header = JST['list/col_titles'] %>
 
-<a href="javascript:void(0)" class="addAnime">Add Anime</a>
+<% if (YAL.currentUser.get("username") === YAL.listId) { %>
+  <a href="javascript:void(0)" class="addAnime">Add Anime</a>
+<% } %>
 
 <h4>Watching</h4>
 <table class="listTable">

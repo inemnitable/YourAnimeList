@@ -23,7 +23,8 @@ YAL.Views.ListShow = Backbone.View.extend({
     "click .headProgress" : "progressSort",
     "click .headComment" : "commentSort",
     "click .progressPlus" : "incProgress",
-    "click .addAnime" : "addAnime"
+    "click .addAnime" : "addAnime",
+		"click .editAnime" : "editAnime"
   },
 
   render: function() {
@@ -164,7 +165,8 @@ YAL.Views.ListShow = Backbone.View.extend({
   },
 
   addAnime: function(event) {
-    YAL.dialog = $('<iframe src="/anime" style="width: 95% !important">');
+		event.preventDefault();
+    YAL.dialog = $('<iframe src="/list_items/new" style="width: 95% !important">');
     YAL.dialog.dialog({
       appendTo: $('body'),
       autoOpen: true,
@@ -174,6 +176,23 @@ YAL.Views.ListShow = Backbone.View.extend({
       modal: true,
       title: "Add Anime"
     });
-  }
+  },
+
+	editAnime: function(event) {
+		event.preventDefault();
+		var itemId = $(event.currentTarget).closest('tr').data("itemid");
+		var item = this.list.get("items").get(itemId);
+// 		console.log(item.url());
+		YAL.dialog = $('<iframe src="' + item.url() + '/edit" style="width: 95% !important">');
+ 		YAL.dialog.dialog({
+ 			appendTo: $('body'),
+ 			autoOpen: true,
+ 			closeOnEscape: true,
+ 			height: 300,
+ 			width: 400,
+ 			modal: true,
+ 			title: "Edit Anime"
+ 		});
+	}
 
 });

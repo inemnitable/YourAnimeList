@@ -2,6 +2,13 @@
   <%= idx + 1 %>
 </td><td class="left">
   <%= item.escape("title") %>
+  <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
+    <span class="floatRight smaller">
+      <a class="editAnime" href="javascript:void(0)">
+        Edit
+      </a>
+    </span>
+  <% } %>
 </td><td>
   <% if (editRating === item.get("id")) { %>
     <%= JST['list/rating_form']({item: item}) %>

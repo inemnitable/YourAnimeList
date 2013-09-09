@@ -185,3 +185,9 @@ div.commentTextArea {
 	position: relative;
 	left: -2px;
 }
+
+.smaller {
+	font-size: smaller;
+	margin-top: 2px;
+	margin-right: 3px;
+}

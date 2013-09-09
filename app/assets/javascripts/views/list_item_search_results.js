@@ -1,5 +1,5 @@
-YAL.Views.AnimeSearchResults = Backbone.View.extend({
-  template: JST['anime/search_results'],
+YAL.Views.ListItemSearchResults = Backbone.View.extend({
+  template: JST['list_item/search_results'],
 
   initialize: function($el) {
     this.$el = $el;

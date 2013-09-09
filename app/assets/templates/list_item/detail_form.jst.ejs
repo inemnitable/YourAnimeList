@@ -1,6 +1,6 @@
 <form>
   <input type="hidden" name="list_item[anime_id]"
-    value="<%= anime.escape("id") %>">
+    value="<%= anime.escape("anime_id") %>">
   <div class="fillWidthLeft">
     <span class="label"><label for="list_item_status">Status</label></span>
     <span class="floatRight"><select name="list_item[status]" id="list_item_status">
@@ -42,7 +42,4 @@
       <textarea cols="16" id="list_item_comment" name="list_item[comment]"
         value="<%= anime.get("comment") %>"></textarea>
     </span>
-  </div><div>
-    <input type="submit" value="Add to List" class="floatRight">
   </div>
-</form>

@@ -14,7 +14,7 @@
 	<%= {} %>
 <% end %>
 </script>
-<% unless @page_id == "anime/index" %>
+<% unless @page_id.match(/^list_item/) %>
 <div>
 <% if logged_in? %>
 <%= link_to "#{current_user.username}'s list", list_url(current_user.username) %> |

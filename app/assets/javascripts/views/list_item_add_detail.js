@@ -1,5 +1,5 @@
-YAL.Views.AnimeAddDetail = Backbone.View.extend({
-  template: JST['anime/detail'],
+YAL.Views.ListItemAddDetail = Backbone.View.extend({
+  template: JST['list_item/detail'],
 
   initialize: function($el) {
     this.$el = $el;
@@ -11,6 +11,7 @@ YAL.Views.AnimeAddDetail = Backbone.View.extend({
   },
 
   render: function() {
+		YAL.detailAnime.set("anime_id", YAL.detailAnime.get("id"));
     var content = this.template({anime: YAL.detailAnime});
     this.$el.html(content);
     return this;
