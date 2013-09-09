@@ -154,7 +154,7 @@ div.fillWidthLeft{
 }
 
 div.fillWidthLeft span.floatRight{
-  width: 110px;
+  width: 130px;
 }
 
 div.fillWidthLeft span.label{
@@ -180,3 +180,8 @@ input, select{
   margin-right: 5px;
 }
 
+div.commentTextArea {
+	margin-bottom: 25px;
+	position: relative;
+	left: -2px;
+}

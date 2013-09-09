@@ -1,5 +1,5 @@
 YAL.Views.AnimeAddDetail = Backbone.View.extend({
-  template: JST['anime/detail_form'],
+  template: JST['anime/detail'],
 
   initialize: function($el) {
     this.$el = $el;
@@ -27,7 +27,7 @@ YAL.Views.AnimeAddDetail = Backbone.View.extend({
         window.parent.YAL.dialog.dialog("close");
       },
       error: function(model, response) {
-        console.log("response.responseJSON");
+        console.log(response.responseJSON);
       }
     });
   }

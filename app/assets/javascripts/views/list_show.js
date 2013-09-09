@@ -166,7 +166,7 @@ YAL.Views.ListShow = Backbone.View.extend({
   addAnime: function(event) {
     YAL.dialog = $('<iframe src="/anime" style="width: 95% !important">');
     YAL.dialog.dialog({
-      appendTo: this.$el,
+      appendTo: $('body'),
       autoOpen: true,
       closeOnEscape: true,
       height: 600,

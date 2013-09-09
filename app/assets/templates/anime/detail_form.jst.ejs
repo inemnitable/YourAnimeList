@@ -1,5 +1,3 @@
-<h3 class="rightBar"><%= anime.escape("title") %></h3>
-
 <form>
   <input type="hidden" name="list_item[anime_id]"
     value="<%= anime.escape("id") %>">
@@ -38,8 +36,13 @@
         / <%= anime.escape("episode_count") %>
       </span>
     </span>
-  </div>
-  <div>
+  </div><div class="fillWidthLeft commentTextArea">
+    <span class="label"><label for="list_item_comment">Comment</label></span>
+    <span class="floatRight">
+      <textarea cols="16" id="list_item_comment" name="list_item[comment]"
+        value="<%= anime.get("comment") %>"></textarea>
+    </span>
+  </div><div>
     <input type="submit" value="Add to List" class="floatRight">
   </div>
 </form>
