@@ -44,7 +44,7 @@ animes = Anime.create!([
   {title: "Death Note", episode_count: 37, show_type: "TV"},
   {title: "Durarara!!", episode_count: 24, show_type: "TV"},
   {title: "Elfen Lied", episode_count: 13, show_type: "TV"},
-  {title: "Elfen Lied", episode_count: 1, show_type: "Special"},
+  {title: "Elfen Lied Special", episode_count: 1, show_type: "Special"},
   {title: "Ergo Proxy", episode_count: 23, show_type: "TV"},
   {title: "Escaflowne", episode_count: 26, show_type: "TV"},
   {title: "Evangelion 1.0: You Are (Not) Alone", episode_count: 1, show_type: "Movie"},
