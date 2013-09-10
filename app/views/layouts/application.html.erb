@@ -14,7 +14,7 @@
 	<%= {} %>
 <% end %>
 </script>
-<% unless @page_id.match(/^list_item/) %>
+<% unless @page_id.try(:match, /^list_item/) %>
 <div>
 <% if logged_in? %>
 <%= link_to "#{current_user.username}'s list", list_url(current_user.username) %> |
