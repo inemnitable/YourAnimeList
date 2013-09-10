@@ -73,7 +73,7 @@ animes = Anime.create!([
   {title: "Great Teacher Onizuka", episode_count: 43, show_type: "TV"},
   {title: "Hachimitsu to Clover", episode_count: 24, show_type: "TV"},
   {title: "Hachimitsu to Clover II", episode_count: 12, show_type: "TV"},
-  {title: "Hachimitsu to Clover Specials", episode_count: 2, show_type: "Spcial"},
+  {title: "Hachimitsu to Clover Specials", episode_count: 2, show_type: "Special"},
   {title: "Hataraku Maou-sama!", episode_count: 13, show_type: "TV"},
   {title: "Hayate no Gotoku! Can't Take My Eyes Off You", episode_count: 12, show_type: "TV"},
   {title: "Hayate no Gotoku! Heaven Is a Place on Earth", episode_count: 1, show_type: "Movie"},
@@ -87,7 +87,7 @@ animes = Anime.create!([
   {title: "Higashi no Eden Movie II: Paradise Lost", episode_count: 1, show_type: "Movie"},
   {title: "High School DxD", episode_count: 12, show_type: "TV"},
   {title: "High School DxD OVA", episode_count: 2, show_type: "OVA"},
-  {title: "High School DxD Specials", episode_count: 6, show_type: "Specials"},
+  {title: "High School DxD Specials", episode_count: 6, show_type: "Special"},
   {title: "Hikaru no Go", episode_count: 75, show_type: "TV"},
   {title: "Hikaru no Go: Journey to the North Star Cup", episode_count: 1, show_type: "Special"},
   {title: "Hikaru no Go: New Year Special", episode_count: 1, show_type: "Special"},
@@ -205,9 +205,4 @@ items = ListItem.create!([
   {user_id: 1, anime_id: 6, status: "Plan to Watch"},
   {user_id: 1, anime_id: 7, status: "Plan to Watch"},
   {user_id: 1, anime_id: 8, status: "Completed", rating: 10},
-  {user_id: 1, anime_id: 9, status: "Watching", progress: 2, rating: 8},
-  {user_id: 1, anime_id: 10, status: "On Hold", progress: 3, rating: 8},
-  {user_id: 1, anime_id: 11, status: "Dropped", progress: 10, rating: 4},
-  {user_id: 1, anime_id: 12, status: "Watching", progress: 15, rating: 7},
-  {user_id: 1, anime_id: 13, status: "Completed", rating: 3}
 ])

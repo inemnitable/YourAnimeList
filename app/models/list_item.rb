@@ -22,6 +22,7 @@ class ListItem < ActiveRecord::Base
     if self.anime.episode_count &&
        self.progress &&
        self.progress > self.anime.episode_count
+      self.errors ||= []
       self.errors << "You can't watch more episodes than exist..."
     end
   end
