@@ -15,8 +15,13 @@ YAL.Routers.ListAddRouter = Backbone.Router.extend({
   },
 
   listAdd: function() {
+		YAL.dialog.dialog("option", {
+			title: "Edit Anime",
+			height: 660,
+			width: 800
+		})
 		console.log("routed to list add");
-    YAL.removeDialogViews();
+    YAL.undelegateDialogEvents();
     var searchView = new YAL.Views.ListItemSearchBox(this.$searchBox);
 		YAL.dialogViews.push(searchView);
     searchView.render();
@@ -27,12 +32,20 @@ YAL.Routers.ListAddRouter = Backbone.Router.extend({
       new YAL.Views.ListItemAddDetail(this.$detailBar);
 		YAL.dialogViews.push(detailView);
 		this.$el.html(this.$listAddOutline);
+		YAL.delegateDialogEvents();
   },
 
 	animeNew: function() {
 		console.log("resizing");
-		YAL.dialog.dialog("option", "title", "Add Anime to Database");
-		YAL.dialog.dialog("option", "height", 300);
-		YAL.dialog.dialog("option", "width", 400);
+		YAL.dialog.dialog("option", {
+			title: "Add Anime to Database",
+			height: 300,
+			width: 400
+		})
+		YAL.undelegateDialogEvents();
+		var view = new YAL.Views.AnimeNew();
+		YAL.dialogViews.push(view);
+		this.$el.html(view.render().$el);
+		YAL.delegateDialogEvents();
 	}
 })

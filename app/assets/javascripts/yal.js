@@ -2,6 +2,7 @@ window.YAL = {
   STATUSES: ["Completed", "Watching", "Dropped", "Plan to Watch", "On Hold"],
   RATINGS: ["", "Unwatchable", "Horrible", "Very Bad", "Bad", "Average",
             "Fine", "Good", "Very Good", "Excellent", "Masterpiece"],
+	TYPES: ["TV", "OVA", "ONA", "Movie", "Special"],
   Models: {},
   Collections: {},
   Views: {},
@@ -21,23 +22,32 @@ window.YAL = {
 			YAL.listItemEditRouter = new YAL.Routers.ListItemEditRouter({
 				$el: YAL.dialog
 			});
-    } else if (page === "list_items/new") {
-      YAL.listAddRouter = new YAL.Routers.ListAddRouter();
-    } else if (/^list_item\/\d+\/edit/.test(page)) {
-    	YAL.listItemId = (/^list_item\/(\d+)\/edit/.exec(page))[1];
-			YAL.listItemEditRouter = new YAL.Routers.ListItemEditRouter();
-		}
+    }
     YAL.currentViews = [];
 		YAL.dialogViews = [];
     YAL.currentUser = new YAL.Models.User(userJSON);
     Backbone.history.start({silent: true});
-		Backbone.history.navigate("", {trigger: true});
+		Backbone.history.navigate("");
+		YAL.listRouter.listShow();
   },
 
 	removeDialogViews: function() {
 		if (YAL.dialogViews.length > 0) {
 			_.invoke(YAL.dialogViews, 'remove');
 			YAL.dialogViews = [];
+		}
+	},
+
+	undelegateDialogEvents: function() {
+		if (YAL.dialogViews.length > 0) {
+			_.invoke(YAL.dialogViews, 'undelegateEvents');
+			YAL.dialogViews = [];
+		}
+	},
+
+	delegateDialogEvents: function() {
+		if (YAL.dialogViews.length > 0) {
+			_.invoke(YAL.dialogViews, 'delegateEvents');
 		}
 	},
 

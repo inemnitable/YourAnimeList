@@ -1,5 +1,5 @@
 class AnimeController < ApplicationController
-  before_filter :require_logged_in, only: [:new]
+  before_filter :require_logged_in, only: [:create]
 
   def new
     @page_id = "anime/new"
@@ -7,7 +7,17 @@ class AnimeController < ApplicationController
     render :new
   end
 
+  def create
+    @anime = Anime.new(params[:anime])
+    if @anime.save
+      render :show
+    else
+      render :json => @anime.errors.full_messages
+    end
+  end
+
   def show
+    @anime = Anime.find(params[:id])
     render :show
   end
 
