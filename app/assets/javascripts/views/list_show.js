@@ -3,6 +3,8 @@ YAL.Views.ListShow = Backbone.View.extend({
 
   template: JST['list/show'],
 
+	status_change_template: JST['list_item/status_change'],
+
   initialize: function(list) {
     this.list = list;
     this.editProgress = false;
@@ -53,6 +55,14 @@ YAL.Views.ListShow = Backbone.View.extend({
     this.formSubmit(event, function() {
       that.editProgress = false;
     });
+		var itemId = $(event.currentTarget).closest('tr').data('itemid');
+		var item = this.list.get("items").get(itemId);
+		console.log(item.get("list_item").progress);
+		if (parseInt(item.get("list_item").progress) === item.get("episode_count")) {
+			this.askToChangeStatus("Completed", item);
+		} else if (item.get("status") !== "Watching" && item.get("progress") > 0) {
+			this.askToChangeStatus("Watching", item);
+		}
   },
 
   ratingLinkClick: function(event) {
@@ -103,11 +113,13 @@ YAL.Views.ListShow = Backbone.View.extend({
     $form = $(event.currentTarget);
     var itemId = $form.closest('tr').data("itemid");
     var item = this.list.get("items").get(itemId);
+		callback();
     item.save($form.serializeJSON(), {
-      success: callback,
+      success: function(model) {
+				model.unset("list_item", {silent: true});
+			},
       error: function(model, resp) {
         console.log(resp.responseJSON);
-        callback();
       }
     });
   },
@@ -160,6 +172,11 @@ YAL.Views.ListShow = Backbone.View.extend({
     var itemId = $(event.currentTarget).closest('tr').data("itemid");
     var item = this.list.get("items").get(itemId);
     var progress = item.get("progress") || 0;
+		if (progress + 1 === item.get("episode_count")) {
+			this.askToChangeStatus("Completed", item);
+		} else if (item.get("status") !== "Watching") {
+			this.askToChangeStatus("Watching", item);
+		}
     item.save({progress: progress + 1}, {
       error: function(model, resp) {
         console.log(resp.responseJSON);
@@ -204,6 +221,34 @@ YAL.Views.ListShow = Backbone.View.extend({
 			}
  		});
 		Backbone.history.navigate("listItem/" + itemId + "/edit", {trigger: true});
-	}
+	},
 
+	askToChangeStatus: function(status, item) {
+		console.log("asking to complete");
+		var dialog = $(this.status_change_template({item: item, status: status}));
+		dialog.dialog({
+			appendTo: $('body'),
+			autoOpen: true,
+			closeOnEscape: true,
+			dialogClass: 'popUpDialog noTitle',
+			modal: true,
+			buttons: [{
+				text: "Yes",
+				click: function() {
+					item.save({status: status}, {
+						error: function(model, resp) {
+							console.log(resp.responseJSON);
+						}
+					});
+					dialog.dialog("close");
+				}
+			},
+			{
+				text: "No",
+				click: function() {
+					$(this).dialog("close");
+				}
+			}]
+		});
+	},
 });

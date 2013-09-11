@@ -176,7 +176,7 @@ h3.rightBar{
   margin-top: -3px;
 }
 
-input, select{
+div.popUpDialog input, select{
   margin-top: -3px;
   margin-right: 5px;
 }
