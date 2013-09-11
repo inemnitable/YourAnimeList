@@ -3,7 +3,8 @@ YAL.Views.ListItemSearchResults = Backbone.View.extend({
 
   initialize: function($el) {
     this.$el = $el;
-    YAL.searchResults = YAL.searchResults || new YAL.Collections.Anime()
+    YAL.searchResults = YAL.searchResults || new YAL.Collections.Anime();
+		this.listenTo(YAL.searchResults, "remove", this.render);
   },
 
   events: {
@@ -21,6 +22,7 @@ YAL.Views.ListItemSearchResults = Backbone.View.extend({
     event.preventDefault();
     var id = $(event.currentTarget).data("animeid");
     YAL.detailAnime = YAL.searchResults.get(id);
+		YAL.detailView.display = true;
     YAL.detailView.render();
   },
 })

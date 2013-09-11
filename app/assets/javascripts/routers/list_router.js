@@ -8,7 +8,6 @@ YAL.Routers.ListRouter = Backbone.Router.extend({
   },
 
   listShow: function() {
-    console.log("rendering list");
     var list = YAL.list;
     var that = this;
     function renderFunction() {

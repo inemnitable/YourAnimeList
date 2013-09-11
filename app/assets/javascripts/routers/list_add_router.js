@@ -1,6 +1,7 @@
 YAL.Routers.ListAddRouter = Backbone.Router.extend({
   initialize: function(options) {
 		YAL.removeDialogViews();
+		this.resetSearch();
 		this.$el = options.$el;
 		this.$listAddOutline = $(JST['list_item/outline']())
 		this.$listAddContainer = this.$listAddOutline.find('div.container');
@@ -20,7 +21,6 @@ YAL.Routers.ListAddRouter = Backbone.Router.extend({
 			height: 660,
 			width: 800
 		})
-		console.log("routed to list add");
     YAL.undelegateDialogEvents();
     var searchView = new YAL.Views.ListItemSearchBox(this.$searchBox);
 		YAL.dialogViews.push(searchView);
@@ -28,15 +28,16 @@ YAL.Routers.ListAddRouter = Backbone.Router.extend({
     var searchResultView = YAL.searchResultView =
       new YAL.Views.ListItemSearchResults(this.$searchResults);
 		YAL.dialogViews.push(searchResultView);
+		searchResultView.render();
     var detailView = YAL.detailView =
       new YAL.Views.ListItemAddDetail(this.$detailBar);
 		YAL.dialogViews.push(detailView);
+		detailView.render();
 		this.$el.html(this.$listAddOutline);
 		YAL.delegateDialogEvents();
   },
 
 	animeNew: function() {
-		console.log("resizing");
 		YAL.dialog.dialog("option", {
 			title: "Add Anime to Database",
 			height: 300,
@@ -47,5 +48,10 @@ YAL.Routers.ListAddRouter = Backbone.Router.extend({
 		YAL.dialogViews.push(view);
 		this.$el.html(view.render().$el);
 		YAL.delegateDialogEvents();
+	},
+
+	resetSearch: function() {
+		YAL.searchResults = null;
+		YAL.detailAnime = null;
 	}
 })
