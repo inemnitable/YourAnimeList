@@ -1,4 +1,11 @@
 class AnimeController < ApplicationController
+  before_filter :require_logged_in, only: [:new]
+
+  def new
+    @page_id = "anime/new"
+    @anime = Anime.new()
+    render :new
+  end
 
   def show
     render :show

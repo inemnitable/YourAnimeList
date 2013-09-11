@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_username(params[:user][:username])
     if @user && @user.verify_password(params[:user][:password])
       login(@user)
-      redirect_to root_url
+      redirect_to list_url(@user.username)
     else
       @errors = @user.errors.full_messages
       render :new

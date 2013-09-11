@@ -166,16 +166,21 @@ YAL.Views.ListShow = Backbone.View.extend({
 
   addAnime: function(event) {
 		event.preventDefault();
-    YAL.dialog = $('<iframe src="/list_items/new" style="width: 95% !important">');
     YAL.dialog.dialog({
       appendTo: $('body'),
       autoOpen: true,
       closeOnEscape: true,
-      height: 600,
+			dialogClass: 'popUpDialog',
+      height: 660,
       width: 800,
       modal: true,
-      title: "Add Anime"
+      title: "Add Anime to List",
+			close: function() {
+				YAL.removeDialogViews();
+				Backbone.history.navigate("#", {trigger: true});
+			}
     });
+		Backbone.history.navigate("#list/add", {trigger: true});
   },
 
 	editAnime: function(event) {
@@ -188,6 +193,7 @@ YAL.Views.ListShow = Backbone.View.extend({
  			appendTo: $('body'),
  			autoOpen: true,
  			closeOnEscape: true,
+
  			height: 300,
  			width: 400,
  			modal: true,

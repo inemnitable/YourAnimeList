@@ -4,7 +4,7 @@ YAL::Application.routes.draw do
   resources :lists, only: [:show]
   resources :list_items, only: [:new, :edit, :create, :update, :destroy]
   get 'anime/search' => 'anime#search'
-  resources :anime, only: [:index, :show, :create, :update]
+  resources :anime, only: [:new, :index, :show, :create, :update]
   root :to => 'root#root'
 
 

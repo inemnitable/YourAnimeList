@@ -1,24 +1,38 @@
 YAL.Routers.ListAddRouter = Backbone.Router.extend({
   initialize: function(options) {
-    this.$searchBox = $('div.search_box');
-    this.$searchResults = $('div.search_results');
-    this.$detailBar = $('div.right_bar')
+		this.$el = options.$el;
+		this.$listAddOutline = $(JST['list_item/outline']())
+		this.$listAddContainer = this.$listAddOutline.find('div.container');
+    this.$searchBox = this.$listAddContainer.find('div.search_box');
+    this.$searchResults = this.$listAddContainer.find('div.search_results');
+    this.$detailBar = this.$listAddContainer.find('div.right_bar');
+		$('a.databaseAdd').on("click", this.databaseAdd);
   },
 
   routes: {
-    "" : "listAdd"
+		"anime/new" : "animeNew",
+    "list/add" : "listAdd"
   },
 
   listAdd: function() {
-    YAL.removeOldViews();
+		console.log("routed to list add");
+    YAL.removeDialogViews();
     var searchView = new YAL.Views.ListItemSearchBox();
-		YAL.currentViews.push(searchView);
+		YAL.dialogViews.push(searchView);
     this.$searchBox.html(searchView.render().$el);
     var searchResultView = YAL.searchResultView =
       new YAL.Views.ListItemSearchResults(this.$searchResults);
-		YAL.currentViews.push(searchResultView);
+		YAL.dialogViews.push(searchResultView);
     var detailView = YAL.detailView =
       new YAL.Views.ListItemAddDetail(this.$detailBar);
-		YAL.currentViews.push(detailView);
+		YAL.dialogViews.push(detailView);
+		this.$el.html(this.$listAddOutline);
   },
+
+	databaseAdd: function() {
+		console.log("resizing");
+		YAL.dialog.dialog("option", "title", "Add Anime to Database");
+		YAL.dialog.dialog("option", "height", 300);
+		YAL.dialog.dialog("option", "width", 400);
+	}
 })

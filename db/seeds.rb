@@ -30,7 +30,7 @@ animes = Anime.create!([
   {title: "Blood+", episode_count: 50, show_type: "Special"},
   {title: "Blood: The Last Vampire", episode_count: 1, show_type: "Movie"},
   {title: "Bounen no Xamdou", episode_count: 26, show_type: "ONA"},
-  {title: "Byousoku 5 Centimere", episode_count: 1, show_type: "Movie"},
+  {title: "Byousoku 5 Centimeter", episode_count: 1, show_type: "Movie"},
   {title: "Code Geass: Boukoku no Akito", episode_count: 4, show_type: "Movie"},
   {title: "Code Geass: Hangyaku no Lelouch", episode_count: 25, show_type: "TV"},
   {title: "Code Geass: Hangyaku no Lelouch R2", episode_count: 25, show_type: "TV"},

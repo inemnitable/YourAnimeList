@@ -4,12 +4,11 @@
   <div class="fillWidthLeft">
     <span class="label"><label for="list_item_status">Status</label></span>
     <span class="floatRight"><select name="list_item[status]" id="list_item_status">
-      <option value="" <% if (!anime.get("status")) { %>selected<% } %>>
+      <option value="" <%= !anime.get("status") ? "selected" : "" %>>
         Select status
       </option>
       <% _.each(YAL.STATUSES, function(status) { %>
-        <option value="<%= status %>" <% if (anime.get("status") === status) { %>
-          selected<% } %>>
+        <option value="<%= status %>" <%= anime.get("status") === status ? "selected" : "" %>>
           <%= status %>
         </option>
       <% }); %>
@@ -17,12 +16,11 @@
   </div><div class="fillWidthLeft">
     <span class="label"><label for="list_item_rating">Rating</label></span>
     <span class="floatRight"><select name="list_item[rating]" id="list_item_rating">
-      <option value="" <% if (!anime.get("rating")) { %>selected<% } %>>
+      <option value="" <%= !anime.get("rating") ? "selected" : "" %>>
         Select rating
       </option>
       <% for (var i = 10; i > 0; i--) { %>
-        <option value="<%= i %>" <% if (anime.get("rating") === i) { %>
-          selected<% } %>>
+        <option value="<%= i %>" <%= anime.get("rating") === i ? "selected" : "" %>>
           <%= i %> - <%= YAL.RATINGS[i] %>
         </option>
       <% } %>
