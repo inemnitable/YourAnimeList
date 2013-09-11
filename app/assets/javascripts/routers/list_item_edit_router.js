@@ -1,18 +1,22 @@
 YAL.Routers.ListItemEditRouter = Backbone.Router.extend({
-	initialize: function() {
-		this.$el = $('div.container');
+	initialize: function(options) {
+		this.$el = options.$el
+		this.$container = $('<div class="container">');
 	},
 
 	routes: {
-		"" : "listItemEdit"
+		"listItem/:itemId/edit" : "listItemEdit"
 	},
 
-	listItemEdit: function() {
-		YAL.removeOldViews();
-		var editView = new YAL.Views.ListItemEditView(this.$el);
-		YAL.currentViews.push(editView);
-		this.$el.html(editView.render().$el);
-		console.log(this.$el);
-		console.log(editView);
+	listItemEdit: function(itemId) {
+		console.log("list item edit called with itemId " + itemId);
+		YAL.removeDialogViews();
+		var editView = new YAL.Views.ListItemEditView({
+			$el: this.$container,
+			itemId: itemId
+		});
+		YAL.dialogViews.push(editView);
+		editView.render();
+		this.$el.html(this.$container);
 	}
 });

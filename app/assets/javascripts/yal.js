@@ -18,6 +18,9 @@ window.YAL = {
 			YAL.listAddRouter = new YAL.Routers.ListAddRouter({
 				$el: YAL.dialog
 			});
+			YAL.listItemEditRouter = new YAL.Routers.ListItemEditRouter({
+				$el: YAL.dialog
+			});
     } else if (page === "list_items/new") {
       YAL.listAddRouter = new YAL.Routers.ListAddRouter();
     } else if (/^list_item\/\d+\/edit/.test(page)) {
@@ -27,7 +30,8 @@ window.YAL = {
     YAL.currentViews = [];
 		YAL.dialogViews = [];
     YAL.currentUser = new YAL.Models.User(userJSON);
-    Backbone.history.start();
+    Backbone.history.start({silent: true});
+		Backbone.history.navigate("", {trigger: true});
   },
 
 	removeDialogViews: function() {

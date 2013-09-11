@@ -1,13 +1,15 @@
 YAL.Views.ListItemEditView = Backbone.View.extend({
 	template: JST["list_item/edit"],
 
-	initialize: function() {
-		this.listItem = window.parent.YAL.list.get("items").get(YAL.listItemId);
+	initialize: function(options) {
+		this.$el = options.$el;
+		this.listItem = YAL.list.get("items").get(options.itemId);
+		console.log(this.listItem);
 	},
 
 	events: {
 		"submit form": "formSubmit",
-		"click .removeLink": "remove"
+		"click a.removeLink": "removeLink"
 	},
 
 	render: function() {
@@ -23,7 +25,7 @@ YAL.Views.ListItemEditView = Backbone.View.extend({
 		this.listItem.save(formData, {
 			success: function(model) {
 				console.log("anime successfully updated");
-				window.parent.YAL.dialog.dialog("close");
+				YAL.dialog.dialog("close");
 			},
 			error: function(model, response) {
 				console.log(response.responseJSON);
@@ -31,12 +33,12 @@ YAL.Views.ListItemEditView = Backbone.View.extend({
 		})
 	},
 
-	remove: function(event) {
+	removeLink: function(event) {
 		event.preventDefault();
 		this.listItem.destroy({
 			success: function(model) {
 				console.log("anime successfully deleted");
-				window.parent.YAL.dialog.dialog("close");
+				YAL.dialog.dialog("close");
 			},
 			error: function(model, response) {
 				console.log(response.responseJSON);

@@ -180,25 +180,27 @@ YAL.Views.ListShow = Backbone.View.extend({
 				Backbone.history.navigate("#", {trigger: true});
 			}
     });
-		Backbone.history.navigate("#list/add", {trigger: true});
+		Backbone.history.navigate("listItem/new", {trigger: true});
   },
 
 	editAnime: function(event) {
 		event.preventDefault();
 		var itemId = $(event.currentTarget).closest('tr').data("itemid");
-		var item = this.list.get("items").get(itemId);
-// 		console.log(item.url());
-		YAL.dialog = $('<iframe src="' + item.url() + '/edit" style="width: 95% !important">');
  		YAL.dialog.dialog({
  			appendTo: $('body'),
  			autoOpen: true,
  			closeOnEscape: true,
-
+			dialogClass: 'popUpDialog',
  			height: 300,
  			width: 400,
  			modal: true,
- 			title: "Edit Anime"
+ 			title: "Edit Anime",
+			close: function() {
+				YAL.removeDialogViews();
+				Backbone.history.navigate("#", {trigger: true});
+			}
  		});
+		Backbone.history.navigate("listItem/" + itemId + "/edit", {trigger: true});
 	}
 
 });

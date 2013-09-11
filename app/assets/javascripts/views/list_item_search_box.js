@@ -1,7 +1,9 @@
 YAL.Views.ListItemSearchBox = Backbone.View.extend({
   template: JST['list_item/search_box'],
 
-  initialize: function() {},
+  initialize: function($el) {
+  	this.$el = $el;
+  },
 
   events: {"submit form" : "search"},
 
