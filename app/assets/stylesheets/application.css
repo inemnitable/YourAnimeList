@@ -208,3 +208,8 @@ select{
 input.fullWidth{
 	width: 100% !important;
 }
+
+div.errors p{
+	font-size: medium;
+	color: red;
+}

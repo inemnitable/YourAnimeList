@@ -7,7 +7,10 @@ YAL.Views.ListShow = Backbone.View.extend({
     this.list = list;
     this.editProgress = false;
     this.editRating = false;
-    this.listenTo(YAL.list.get("items"), "add change destroy", this.render);
+    this.listenTo(this.list.get("items"), "add change destroy", this.render);
+		this.listenTo(this.list.get("items"),
+									"add change",
+									this.list.get("items").sort.bind(this.list.get("items")));
   },
 
   events: {
@@ -176,7 +179,7 @@ YAL.Views.ListShow = Backbone.View.extend({
       modal: true,
       title: "Add Anime to List",
 			close: function() {
-				YAL.removeDialogViews();
+				YAL.listAddRouter.initialize({$el: YAL.dialog});
 				Backbone.history.navigate("#", {trigger: true});
 			}
     });

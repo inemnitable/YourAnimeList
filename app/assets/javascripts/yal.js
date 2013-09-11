@@ -22,17 +22,17 @@ window.YAL = {
 			YAL.listItemEditRouter = new YAL.Routers.ListItemEditRouter({
 				$el: YAL.dialog
 			});
+	    YAL.currentViews = [];
+			YAL.dialogViews = [];
+	    YAL.currentUser = new YAL.Models.User(userJSON);
+	    Backbone.history.start({silent: true});
+			Backbone.history.navigate("");
+			YAL.listRouter.listShow();
     }
-    YAL.currentViews = [];
-		YAL.dialogViews = [];
-    YAL.currentUser = new YAL.Models.User(userJSON);
-    Backbone.history.start({silent: true});
-		Backbone.history.navigate("");
-		YAL.listRouter.listShow();
   },
 
 	removeDialogViews: function() {
-		if (YAL.dialogViews.length > 0) {
+		if (YAL.dialogViews && YAL.dialogViews.length > 0) {
 			_.invoke(YAL.dialogViews, 'remove');
 			YAL.dialogViews = [];
 		}

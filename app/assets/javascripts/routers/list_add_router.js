@@ -1,12 +1,12 @@
 YAL.Routers.ListAddRouter = Backbone.Router.extend({
   initialize: function(options) {
+		YAL.removeDialogViews();
 		this.$el = options.$el;
 		this.$listAddOutline = $(JST['list_item/outline']())
 		this.$listAddContainer = this.$listAddOutline.find('div.container');
     this.$searchBox = this.$listAddContainer.find('div.search_box');
     this.$searchResults = this.$listAddContainer.find('div.search_results');
     this.$detailBar = this.$listAddContainer.find('div.right_bar');
-		$('a.databaseAdd').on("click", this.databaseAdd);
   },
 
   routes: {
