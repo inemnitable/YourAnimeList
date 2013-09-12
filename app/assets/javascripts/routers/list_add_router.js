@@ -35,6 +35,7 @@ YAL.Routers.ListAddRouter = Backbone.Router.extend({
 		detailView.render();
 		this.$el.html(this.$listAddOutline);
 		YAL.delegateDialogEvents();
+		this.$searchBox.find('input#search').focus();
   },
 
 	animeNew: function() {
