@@ -13,7 +13,7 @@ YAL.Collections.ListItems = Backbone.Collection.extend({
       var status1 = item1.get("status");
       var status2 = item2.get("status");
       if ((status1 === "Completed" && status2 === "Completed") ||
-					 val1 === null && val2 === null) {
+           val1 === null && val2 === null) {
         var count1 = item1.get("episode_count");
         var count2 = item2.get("episode_count");
         if (count1 < count2) return -1*this.sortOrder
