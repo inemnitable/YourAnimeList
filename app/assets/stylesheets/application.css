@@ -24,16 +24,16 @@ body, div.popUpDialog{
 	font-family: Verdana, Arial;
 }
 
-.listTable{
+table.listTable{
   border-collapse: collapse;
 }
 
-.listTable tr th{
+table.listTable tr th{
   padding: 2px;
   padding-left: 6px;
 }
 
-.listTable tr td{
+table.listTable tr td{
   border: 1px solid black;
   padding: 2px;
   padding-left: 6px;
@@ -47,7 +47,7 @@ tr.color2{
   background-color: #323232;
 }
 
-td{
+table.listTable td{
   text-align: center;
 }
 

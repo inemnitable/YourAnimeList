@@ -16,12 +16,14 @@
 </script>
 <%# unless @page_id.try(:match, /^list_item|^anime/) %>
 <div>
-<% if logged_in? %>
-<%= link_to "#{current_user.username}'s list", list_url(current_user.username) %> |
-<%= link_to "log out", session_url, method: "DELETE"%>
-<% else %>
-<%= link_to "log in", new_session_url %>
-<%= link_to "new user", new_user_url %>
+<% if @page_id.try(:match, (/^lists\/\w+/)) %>
+  <% if logged_in? %>
+    <%= link_to "#{current_user.username}'s list", list_url(current_user.username) %> |
+    <%= link_to "log out", session_url, method: "DELETE"%>
+  <% else %>
+    <%= link_to "log in", new_session_url %> |
+    <%= link_to "new user", new_user_url %>
+  <% end %>
 <% end %>
 <div class="errors">
   <% @errors.try(:each) do |message| %>
