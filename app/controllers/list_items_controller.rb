@@ -12,21 +12,6 @@ class ListItemsController < ApplicationController
     end
   end
 
-  def new
-    respond_to do |format|
-      format.html do
-        @page_id = "list_items/new"
-        render :new
-      end
-    end
-  end
-
-  def edit
-    @list_item = ListItem.find(params[:id])
-    @page_id = "list_item/#{params[:id]}/edit"
-    render :edit
-  end
-
   def update
     if @list_item.update_attributes(params[:list_item])
       render :show
