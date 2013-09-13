@@ -29,7 +29,7 @@
     <span class="label"><label for="list_item_progress">Progress</label></span>
     <span class="floatRight">
       <span class="input"><input type="text" id="list_item_progress"
-        name="list_item[progress]" value="<%= anime.get("progress") %>">
+        name="list_item[progress]" value="<%= anime.escape("progress") %>">
       </span><span>
         / <%= anime.escape("episode_count") %>
       </span>
@@ -38,6 +38,6 @@
     <span class="label"><label for="list_item_comment">Comment</label></span>
     <span class="floatRight">
       <textarea cols="16" id="list_item_comment" name="list_item[comment]"
-        ><%= anime.get("comment") %></textarea>
+        ><%= anime.escape("comment") %></textarea>
     </span>
   </div>
