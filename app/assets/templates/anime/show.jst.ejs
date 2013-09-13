@@ -1,0 +1,16 @@
+<h2><%= anime.escape("title") %></h2>
+
+<table>
+  <tr><td>
+    Number of Episodes:
+  </td><td>
+    <%= anime.escape("episode_count") %>
+  </td></tr>
+  <tr><td>
+    Show type:
+  </td><td>
+    <%= anime.escape("type") %>
+  </td></tr>
+</table>
+
+<p><a href="#anime/<%= anime.escape("id") %>/edit">Edit this anime</a></p>

@@ -1,4 +1,4 @@
-2YAL.Routers.ListAddRouter = Backbone.Router.extend({
+YAL.Routers.ListAddRouter = Backbone.Router.extend({
   initialize: function(options) {
     YAL.removeDialogViews();
     this.resetSearch();
@@ -11,13 +11,13 @@
   },
 
   routes: {
-    "anime/new" : "animeNew",
+    "newAnime" : "animeNew",
     "listItem/new" : "listAdd"
   },
 
   listAdd: function() {
     YAL.dialog.dialog("option", {
-      title: "Edit Anime",
+      title: "Add Anime to List",
       height: 660,
       width: 800
     })

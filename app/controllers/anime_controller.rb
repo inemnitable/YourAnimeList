@@ -34,4 +34,13 @@ class AnimeController < ApplicationController
         .limit(15)
     render :search
   end
+
+  def update
+    @anime = Anime.find(params[:id])
+    if @anime.update_attributes(params[:anime])
+      render :show
+    else
+      render :json => @anime.errors.full_messages
+    end
+  end
 end

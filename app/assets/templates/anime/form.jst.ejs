@@ -1,0 +1,23 @@
+<div class="fillWidthLeft">
+  <span class="label"><label for="anime_title">Title</label></span>
+  <span class="floatRight"><input class="fullWidth" type="text" id="anime_title"
+    name="anime[title]" value="<%= anime.escape("title") %>"></span>
+</div><div class="fillWidthLeft">
+  <span class="label"><label for="anime_episode_count">
+    Number of Episodes
+  </label></span>
+  <span class="floatRight"><input class="fullWidth" type="text" id="anime_episode_count"
+    name="anime[episode_count]" value="<%= anime.escape("episode_count") %>"></span>
+</div><div class="fillWidthLeft">
+  <span class="label"><label for="anime_show_type">Type</label></span>
+  <span class="floatRight"><select name="anime[show_type]" id="anime_show_type">
+    <option value="" <%= anime.get("type") ? "" : "selected" %>>
+      Select type
+    </option>
+    <% _.each(YAL.TYPES, function(type) { %>
+      <option value="<%= type %>" <%= anime.get("type") === type ? "selected" : "" %>>
+        <%= type %>
+      </option>
+    <% }) %>
+  </select></span>
+</div>

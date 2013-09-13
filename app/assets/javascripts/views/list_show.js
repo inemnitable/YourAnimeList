@@ -28,8 +28,9 @@ YAL.Views.ListShow = Backbone.View.extend({
     "click .headProgress" : "progressSort",
     "click .headComment" : "commentSort",
     "click .progressPlus" : "incProgress",
-    "click .addAnime" : "addAnime",
-    "click .editAnime" : "editAnime"
+    "click .addListItem" : "addListItem",
+    "click .editListItem" : "editListItem",
+    "click .showAnime" : "showAnime"
   },
 
   render: function() {
@@ -184,7 +185,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     });
   },
 
-  addAnime: function(event) {
+  addListItem: function(event) {
     event.preventDefault();
     YAL.dialog.dialog({
       appendTo: $('body'),
@@ -203,7 +204,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     Backbone.history.navigate("listItem/new", {trigger: true});
   },
 
-  editAnime: function(event) {
+  editListItem: function(event) {
     event.preventDefault();
     var itemId = $(event.currentTarget).closest('tr').data("itemid");
     YAL.dialog.dialog({
@@ -251,4 +252,31 @@ YAL.Views.ListShow = Backbone.View.extend({
       }]
     });
   },
+
+  showAnime: function(event) {
+    event.preventDefault();
+    var itemId = $(event.currentTarget).closest('tr').data("itemid");
+    var item = this.list.get("items").get(itemId);
+    YAL.anime = new YAL.Models.Anime({
+      id: item.get("anime_id"),
+      title: item.get("title"),
+      episode_count: item.get("episode_count"),
+      type: item.get("type")
+    });
+    YAL.dialog.dialog({
+      appendTo: $('body'),
+      autoOpen: true,
+      closeOnEscape: true,
+      dialogClass: 'popUpDialog',
+      height: 250,
+      width: 400,
+      modal: true,
+      title: "Edit " + item.get("title"),
+      close: function() {
+        YAL.removeDialogViews();
+        Backbone.history.navigate("#", {trigger: true});
+      }
+    });
+    Backbone.history.navigate("#anime/" + item.get("anime_id"), {trigger: true});
+  }
 });

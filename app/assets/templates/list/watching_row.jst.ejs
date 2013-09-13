@@ -3,10 +3,10 @@
 <td>
   <%= idx + 1 %>
 </td><td class="left">
-  <%= item.escape("title") %>
+  <a href="javascript:void(0)" class="showAnime"><%= item.escape("title") %></a>
   <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
     <span class="floatRight smaller">
-      <a class="editAnime" href="javascript:void(0)">
+      <a class="editListItem" href="javascript:void(0)">
         Edit
       </a>
     </span>

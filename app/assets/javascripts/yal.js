@@ -22,6 +22,9 @@ window.YAL = {
       YAL.listItemEditRouter = new YAL.Routers.ListItemEditRouter({
         $el: YAL.dialog
       });
+      YAL.animeEditRouter = new YAL.Routers.AnimeEditRouter({
+        $el: YAL.dialog
+      });
       YAL.currentViews = [];
       YAL.dialogViews = [];
       YAL.currentUser = new YAL.Models.User(userJSON);
