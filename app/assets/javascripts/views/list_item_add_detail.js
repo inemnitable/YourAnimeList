@@ -32,9 +32,7 @@ YAL.Views.ListItemAddDetail = Backbone.View.extend({
         YAL.searchResults.remove(YAL.detailAnime);
         YAL.detailAnime = null;
         YAL.listAddRouter.listAdd();
-        // YAL.searchResultView.render();
-//        YAL.detailView = new YAL.Views.ListItemAddDetail()
-//        YAL.detailView.render();
+	model.unset("list_item");
       },
       error: function(model, response) {
         console.log(response.responseJSON);
