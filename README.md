@@ -13,3 +13,7 @@ A clone of [myanimelist.net](http://myanimelist.net)'s core list-keeping functio
 * Update all fields in realtime, with no page reloads.
 * Can't find an anime you're watching? Add it to the database.
 * Your list address is public! Give it to your friends so they can see what you're watching.
+
+##Demo
+
+To try it out, log in with username: demo and password: password.
