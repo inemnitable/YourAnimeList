@@ -22,7 +22,7 @@
 </td><td>
   <%= item.escape("type") %>
 </td><td>
-  <%= item.escape("episode_count")%>
+  <%= item.escape("episode_count") || "-" %>
 </td><td class="left comments">
   <% if (editComment === item.get("id")) { %>
     <%= JST['list/comment_form']({item: item}) %>

@@ -32,7 +32,7 @@
     <% } %>
     <%= item.escape("progress") || "-" %>
   <% } %>
-   / <%= item.escape("episode_count")%>
+   / <%= item.escape("episode_count") || "-" %>
    </a>
    <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
      <span class="smaller">
