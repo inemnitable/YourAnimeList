@@ -12,6 +12,15 @@
  *= require_tree .
  */
 
+.cf:before, .cf:after{
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
 a{
   color: #6677ff;
   text-decoration: none;
@@ -162,7 +171,7 @@ div.fillWidthLeft span.label{
   overflow: hidden;
 }
 
-div.fillWidthLeft span.floatRight input{
+div.fillWidthLeft span.floatRight input[type=text]{
   width: 70px;
 }
 
@@ -185,7 +194,7 @@ div.popUpDialog input, select{
 }*/
 
 div.commentTextArea {
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   position: relative;
   left: -2px;
 }
@@ -215,4 +224,8 @@ div.errors p{
 
 div.noTitle .ui-dialog-titlebar{
   display: none;
+}
+
+div.submitDiv {
+  margin-top: 2px;
 }

@@ -22,6 +22,7 @@ class AnimeController < ApplicationController
       Anime.where("LOWER(title) LIKE ? AND id NOT IN (?)",
         "%#{search_str.downcase}%",
         current_user.anime_ids)
+        .order("title ASC")
         .limit(15) :
       Anime.where("LOWER(title) LIKE ?",
         "%#{search_str.downcase}%")
