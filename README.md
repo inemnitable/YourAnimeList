@@ -1,6 +1,6 @@
 # YourAnimeList
 
-A clone of [myanimelist.net](http://myanimelist.net)'s core list-keeping functionality.
+A clone of [myanimelist.net](http://myanimelist.net)'s core list-keeping functionality. Online at [YourAnimeList](http://youranimelist.herokuapp.com).
 
 ##Features
 
