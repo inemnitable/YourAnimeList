@@ -2,7 +2,7 @@
 <h1>Log In:</h1>
 <form action="<%= session_url %>" method="post">
   <%= render "shared/user_form" %><tr><td></td><td><div style="float: right">
-  <input type="submit" value="Log in"><button form="sign_up_form" value="Sign Up">
+  <input type="submit" value="Log in"><button type="submit" form="sign_up_form">Sign Up</button>
   </div></td></tr></table>
 </form>
 <form action="<%= new_user_url %>"></form>
