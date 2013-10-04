@@ -5,8 +5,9 @@ YAL.Views.ListShow = Backbone.View.extend({
 
   status_change_template: JST['list_item/status_change'],
 
-  initialize: function(list) {
-    this.list = list;
+  initialize: function(options) {
+    this.list = options.list;
+    this.$el = options.$el;
     this.editProgress = false;
     this.editRating = false;
     this.listenTo(this.list.get("items"), "add change destroy", this.render);

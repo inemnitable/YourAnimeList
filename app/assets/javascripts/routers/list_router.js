@@ -12,9 +12,12 @@ YAL.Routers.ListRouter = Backbone.Router.extend({
     var that = this;
     function renderFunction() {
       YAL.removeOldViews();
-      var view = new YAL.Views.ListShow(list);
+      var view = new YAL.Views.ListShow({
+        list: list,
+        $el: that.$el
+      });
       YAL.currentViews.push(view);
-      that.$el.html(view.render().$el);
+      view.render();
     }
     if (list) {
       renderFunction();

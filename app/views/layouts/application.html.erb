@@ -15,6 +15,7 @@
 <% end %>
 </script>
 <%# unless @page_id.try(:match, /^list_item|^anime/) %>
+<div class="mainContainer">
 <div>
 <% if @page_id.try(:match, (/^lists\/\w+/)) %>
   <% if logged_in? %>
@@ -37,6 +38,7 @@
 
 <%= yield %>
 
+</div>
 </div>
 </body>
 </html>
