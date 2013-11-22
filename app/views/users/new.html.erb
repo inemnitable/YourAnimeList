@@ -1,13 +1,17 @@
 <!-- app/views/users/new -->
-<h1>Sign Up:</h1>
+<div class="loginContainer">
+<h1>Welcome to YourAnimeList!</h1>
+
+<h2>Sign Up:</h2>
 
 
 <form method="post" action="<%= users_url %>">
   <%= render "shared/user_form" %><tr><td>
   <label for="user_email">Email:</label></td><td>
-  <input type="text" id="user_email" name="user[email]"
+  <input class="floatRight" type="text" id="user_email" name="user[email]"
    value="<%= @user.try(:email) %>"></td></tr>
-  <tr><td></td><td><input style="float: right" type="submit" value="Create User"></td></tr></table>
+  <tr><td></td><td><input class="floatRight" type="submit" value="Create User"></td></tr></table>
 </form>
 
 <p>Already have an account? <%= link_to "Sign In.", new_session_url %></p>
+</div>

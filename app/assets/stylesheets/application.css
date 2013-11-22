@@ -27,6 +27,7 @@ a{
 }
 
 body, div.popUpDialog{
+
   background-color: black;
   color: #E0E0E0 !important;
   font-size: 11.0px;
@@ -235,4 +236,13 @@ div.submitDiv {
 div.mainContainer{
   max-width: 1050px;
   margin: 0 auto;
- }
+}
+
+div.loginContainer{
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+  left: -230px;
+  background: transparent;
+  color: black;
+}

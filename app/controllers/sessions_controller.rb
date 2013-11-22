@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   before_filter :require_logged_in, only: :destroy
 
   def new
+    @page_id = "login"
     @user = User.new
   end
 
