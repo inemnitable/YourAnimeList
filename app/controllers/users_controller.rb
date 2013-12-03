@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       @errors = @user.errors.full_messages
+      @page_id = "signup"
       render :new
     end
   end
