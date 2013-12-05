@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       login(@user)
       redirect_to list_url(@user.username)
     else
-      @errors = @user.errors.full_messages
+      @page_id = "login"
+      @errors = ["Username or password is incorrect."]
       render :new
     end
   end

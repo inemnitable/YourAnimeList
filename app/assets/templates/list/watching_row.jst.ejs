@@ -30,7 +30,7 @@
     <% if (YAL.currentUser.get("username") === YAL.listId ) { %>
       <a class="progressLink edit" href="javascript:void(0)">
     <% } %>
-    <%= item.escape("progress") || "-" %>
+    <%= item.escape("progress") || "0" %>
   <% } %>
    / <%= item.escape("episode_count") || "-" %>
    </a>

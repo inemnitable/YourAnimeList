@@ -61,7 +61,7 @@ YAL.Views.ListShow = Backbone.View.extend({
     console.log(item.get("list_item").progress);
     if (parseInt(item.get("list_item").progress) === item.get("episode_count")) {
       this.askToChangeStatus("Completed", item);
-    } else if (item.get("status") !== "Watching" && item.get("progress") > 0) {
+    } else if (item.get("status") !== "Watching" && item.get("list_item").progress > 0) {
       this.askToChangeStatus("Watching", item);
     }
   },

@@ -1,0 +1,6 @@
+<div class="errors">
+	<%= errors %>
+  <% @errors.try(:each) do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>

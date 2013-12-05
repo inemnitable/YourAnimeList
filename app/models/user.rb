@@ -3,8 +3,11 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :username
   validates_format_of :email,
-    with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\Z/
-  validates_format_of :username, with: /\A[A-Za-z]{3,}\Z/
+    with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\Z/,
+    message: "does not look like an email."
+  validates_format_of :username, 
+    with: /\A[A-Za-z]{3,}\Z/,
+    message: "must contain only letters and be at least 3 letters long."
   validates_presence_of :username, :email, :password_digest, :session_token
 
   has_many :list_items
