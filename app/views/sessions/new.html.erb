@@ -5,9 +5,14 @@
 <h2>Log In:</h2>
 <form action="<%= session_url %>" method="post">
   <%= render "shared/user_form" %><tr><td></td><td><div class="floatRight">
-  <input type="submit" value="Log in"><button type="submit" form="sign_up_form">Sign Up</button>
+  <input type="submit" value="Log in"><button type="submit" form="sign_up_form">Sign Up</button><button type="submit" form="demo_login_form">Demo</button>
   </div></td></tr></table>
 </form>
 <form id="sign_up_form" action="<%= new_user_url %>"></form>
+<form id="demo_login_form" action="<%= session_url %>" method="post">
+	<%= render "shared/authenticity" %>
+	<input type="hidden" value="demo" name="user[username]">
+	<input type="hidden" value="password" name="user[password]">
+</form>
 <%= render "shared/errors" %>
 </div>

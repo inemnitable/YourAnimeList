@@ -9,6 +9,11 @@
 user = User.new(username: "kurisu", password: "okabe", email: "kurisu@fgl.com")
 user.reset_session_token
 user.save!
+
+demo = User.new(username: "demo", password: "password", email: "demo@demo.com")
+demo.reset_session_token
+demo.save!
+
 animes = Anime.create!([
   {title: "Accel World", episode_count: 24, show_type: "TV"},
   {title: "Accel World EX", episode_count: 2, show_type: "OVA"},
